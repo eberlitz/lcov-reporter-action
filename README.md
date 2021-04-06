@@ -57,7 +57,7 @@ When set to true will show the increase/decrease difference of the coverage, lik
 ## Example usage
 
 ```yml
-uses: eberlitz/lcov-reporter-action@v0.2.29
+uses: eberlitz/lcov-reporter-action@v0.2.30
 with:
   github-token: ${{ secrets.GITHUB_TOKEN }}
   lcov-file: ./coverage/lcov.info
