@@ -42021,10 +42021,12 @@ async function main$1() {
 	const token = core$1.getInput("github-token");
 	const lcovFile = core$1.getInput("lcov-file") || "./coverage/lcov.info";
 	const baseFile = core$1.getInput("lcov-base");
-	const showUncoveredLines = !!core$1.getInput("show-uncovered-lines");
-	const showColorEmoji = !!core$1.getInput("show-color-emoji");
-	const showOldValueForFiles = !!core$1.getInput("show-old-value-for-files");
-	const showIncreasePerFiles = !!core$1.getInput("show-increase-per-files");
+	const showUncoveredLines = core$1.getInput("show-uncovered-lines") === "true";
+	const showColorEmoji = core$1.getInput("show-color-emoji") === "true";
+	const showOldValueForFiles =
+		core$1.getInput("show-old-value-for-files") === "true";
+	const showIncreasePerFiles =
+		core$1.getInput("show-increase-per-files") === "true";
 
 	const raw = await fs.promises.readFile(lcovFile, "utf-8").catch(err => null);
 	if (!raw) {
