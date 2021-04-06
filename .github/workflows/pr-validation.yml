@@ -40,7 +40,7 @@ jobs:
           restore-keys: ${{ runner.os }}-master-coverage
 
       - name: Report code coverage
-        uses: eberlitz/lcov-reporter-action@v0.2.29
+        uses: eberlitz/lcov-reporter-action@v0.2.30
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           lcov-file: ./lcov.info
