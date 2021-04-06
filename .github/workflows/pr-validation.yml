@@ -45,3 +45,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           lcov-file: ./lcov.info
           lcov-base: ./base-coverage.lcov
+          show-old-value-for-files: false
