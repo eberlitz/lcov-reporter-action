@@ -56,7 +56,9 @@ async function main() {
 
 	const body =
 		diffHtml.length > MAX_COMMENT_SIZE
-			? COVERAGE_HEADER + `See action details for coverage`
+			? coverageHeader +
+			  diff(lcov, baselcov, { ...options, hideDetails: true }) +
+			  `\n\nSee action details for coverage`
 			: diffHtml
 
 	const ghClient = new GitHub(token)

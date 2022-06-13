@@ -25,10 +25,12 @@ export function diff(lcov, before, options) {
 		return fragment(...data)
 	}
 
-	data.push(
-		"\n\n",
-		details(summary("Coverage Report"), tabulate(report, options)),
-	)
+	if (!options.hideDetails) {
+		data.push(
+			"\n\n",
+			details(summary("Coverage Report"), tabulate(report, options)),
+		)
+	}
 
 	return fragment(...data)
 }

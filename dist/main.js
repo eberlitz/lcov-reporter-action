@@ -42006,10 +42006,12 @@ function diff(lcov, before, options) {
 		return fragment(...data)
 	}
 
-	data.push(
-		"\n\n",
-		details(summary("Coverage Report"), tabulate(report, options)),
-	);
+	if (!options.hideDetails) {
+		data.push(
+			"\n\n",
+			details(summary("Coverage Report"), tabulate(report, options)),
+		);
+	}
 
 	return fragment(...data)
 }
@@ -42065,7 +42067,9 @@ async function main$1() {
 
 	const body =
 		diffHtml.length > MAX_COMMENT_SIZE
-			? COVERAGE_HEADER + `See action details for coverage`
+			? coverageHeader +
+			  diff(lcov, baselcov, { ...options, hideDetails: true }) +
+			  `\n\nSee action details for coverage`
 			: diffHtml;
 
 	const ghClient = new github_2(token);
