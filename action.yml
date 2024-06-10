@@ -23,11 +23,11 @@ inputs:
   show-old-value-for-files:
     description: Set to true to show the old coverage result value
     required: false
-    default: 'true'
+    default: "true"
   show-increase-per-files:
     description: Set to true to show the increase/decrease difference of the coverage;
     required: false
 
 runs:
-  using: node12
+  using: node20
   main: dist/main.js
